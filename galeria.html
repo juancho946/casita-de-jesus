@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería - Jardín Infantil Casita de Jesús</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    body { background: #fff9f0; }
+    .wave-top {
+      background: #4fc3f7; height: 36px; position: relative;
+    }
+    .wave-top::after {
+      content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 36px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,60 C150,120 350,0 600,60 C850,120 1050,0 1200,60 L1200,120 L0,120 Z' fill='%23fff9f0'/%3E%3C/svg%3E") no-repeat;
+      background-size: 100% 100%;
+    }
+    .page-title-bar { padding: 28px 0 10px; text-align: center; }
+    .page-title-bar h1 { font-size: 36px; font-weight: 900; color: #4fc3f7; }
+
+    .galeria-layout {
+      display: grid; grid-template-columns: 250px 1fr; gap: 28px;
+      align-items: start; padding-bottom: 60px;
+    }
+    .galeria-menu {
+      background: linear-gradient(180deg, #ffca28 0%, #ffb300 100%);
+      border-radius: 16px; padding: 10px 0;
+      box-shadow: 0 8px 25px rgba(255,179,0,0.3); overflow: hidden;
+    }
+    .galeria-menu button {
+      display: flex; align-items: center; gap: 12px; width: 100%;
+      padding: 13px 20px; border: none; background: transparent;
+      font-family: inherit; font-size: 15px; font-weight: 800;
+      color: white; text-align: left; cursor: pointer;
+      transition: background 0.2s; text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    }
+    .galeria-menu button:hover, .galeria-menu button.active {
+      background: rgba(255,255,255,0.22);
+    }
+    .galeria-menu button::before { content: '●'; font-size: 10px; opacity: 0.9; }
+
+    .galeria-content {
+      background: white; border-radius: 18px; padding: 28px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06); min-height: 400px;
+    }
+    .galeria-content h2 { font-size: 22px; font-weight: 900; color: #0288d1; margin-bottom: 6px; }
+    .galeria-content .desc { color: #777; font-size: 14.5px; margin-bottom: 22px; }
+
+    .photos-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px;
+    }
+    .photo-item {
+      aspect-ratio: 1; border-radius: 12px; overflow: hidden;
+      background: #f0f0f0; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.25s, box-shadow 0.25s; cursor: pointer;
+      border: 3px solid transparent;
+    }
+    .photo-item:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12); border-color: #ffb300;
+    }
+    .photo-item img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .photo-item .placeholder {
+      width: 100%; height: 100%; display: flex; align-items: center;
+      justify-content: center; font-size: 36px;
+      background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+    }
+
+    .empty-msg {
+      text-align: center; padding: 50px 20px; color: #999; font-size: 15px;
+    }
+    .empty-msg code {
+      background: #f5f5f5; padding: 2px 8px; border-radius: 6px; font-size: 13px;
+    }
+
+    @media (max-width: 750px) {
+      .galeria-layout { grid-template-columns: 1fr; }
+      .galeria-menu { display: flex; flex-wrap: wrap; padding: 8px; gap: 4px; }
+      .galeria-menu button { width: auto; border-radius: 30px; padding: 10px 14px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <img src="img/logo.png" alt="Casita de Jesús" class="logo-img" onerror="this.style.display='none'">
+        <div class="logo-text">
+          <span class="logo-main">Casita de Jesús</span>
+          <span class="logo-sub">Jardín Infantil / Sala Cuna</span>
+        </div>
+      </a>
+      <button class="menu-toggle" aria-label="Abrir menú" onclick="document.querySelector('.main-nav').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="equipo.html">Equipo</a></li>
+          <li><a href="pedagogia.html">Pedagogía</a></li>
+          <li><a href="jardin.html">Jardín</a></li>
+          <li><a href="galeria.html" class="active">Galería</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wave-top"></div>
+  <div class="page-title-bar"><div class="container"><h1>Galería</h1></div></div>
+
+  <section style="padding: 10px 0 0;">
+    <div class="container">
+      <div class="galeria-layout">
+
+        <div class="galeria-menu" id="galeriaMenu">
+          <button class="active" data-cat="semana-cultural">Semana Cultural</button>
+          <button data-cat="dia-familia">Día de la Familia</button>
+          <button data-cat="dia-madre">Día de la Madre</button>
+          <button data-cat="amor-amistad">Amor y Amistad</button>
+          <button data-cat="dia-nino">Día del Niño</button>
+          <button data-cat="navidad">Navidad</button>
+          <button data-cat="graduacion">Graduación</button>
+        </div>
+
+        <div class="galeria-content">
+          <h2 id="catTitle">Semana Cultural</h2>
+          <p class="desc" id="catDesc">Momentos especiales de nuestra Semana Cultural</p>
+          <div class="photos-grid" id="photosGrid"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo-main">Casita de Jesús</div>
+          <p>Jardín Infantil y Sala Cuna. Un espacio donde cada niño florece con amor, respeto y felicidad.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="equipo.html">Equipo</a></li>
+            <li><a href="pedagogia.html">Pedagogía</a></li>
+            <li><a href="jardin.html">Jardín</a></li>
+            <li><a href="galeria.html">Galería</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <ul>
+            <li>📍 Dirección por confirmar</li>
+            <li>📞 Teléfono por confirmar</li>
+            <li>✉️ info@parvulos.cl</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 Jardín Infantil Casita de Jesús. Todos los derechos reservados.</div>
+    </div>
+  </footer>
+
+  <script>
+    /*
+      ============================================
+      CÓMO SUBIR FOTOS DE EVENTOS
+      ============================================
+      1. Ve a la carpeta: img/galeria/
+      2. Dentro hay una carpeta por cada evento:
+         - semana-cultural/
+         - dia-familia/
+         - dia-madre/
+         - amor-amistad/
+         - dia-nino/
+         - navidad/
+         - graduacion/
+      3. Pon las fotos dentro de la carpeta del evento
+         (nombres: 1.jpg, 2.jpg, 3.jpg... o cualquier nombre)
+      4. Actualiza la lista de archivos abajo en "photos"
+    */
+
+    const categorias = {
+      'semana-cultural': {
+        title: 'Semana Cultural',
+        desc: 'Momentos especiales de nuestra Semana Cultural',
+        folder: 'img/galeria/semana-cultural/',
+        photos: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg']  // <-- cambia por los nombres reales
+      },
+      'dia-familia': {
+        title: 'Día de la Familia',
+        desc: 'Celebrando el amor y la unión familiar',
+        folder: 'img/galeria/dia-familia/',
+        photos: ['1.jpg', '2.jpg', '3.jpg', '4.jpg']
+      },
+      'dia-madre': {
+        title: 'Día de la Madre',
+        desc: 'Homenaje a las mamás de nuestra comunidad',
+        folder: 'img/galeria/dia-madre/',
+        photos: ['1.jpg', '2.jpg', '3.jpg', '4.jpg']
+      },
+      'amor-amistad': {
+        title: 'Amor y Amistad',
+        desc: 'Celebramos el cariño y la amistad',
+        folder: 'img/galeria/amor-amistad/',
+        photos: ['1.jpg', '2.jpg', '3.jpg', '4.jpg']
+      },
+      'dia-nino': {
+        title: 'Día del Niño',
+        desc: 'Un día especial para nuestros pequeños',
+        folder: 'img/galeria/dia-nino/',
+        photos: ['1.jpg', '2.jpg', '3.jpg', '4.jpg']
+      },
+      'navidad': {
+        title: 'Navidad',
+        desc: 'La magia de la Navidad en Casita de Jesús',
+        folder: 'img/galeria/navidad/',
+        photos: ['1.jpg', '2.jpg', '3.jpg', '4.jpg']
+      },
+      'graduacion': {
+        title: 'Graduación',
+        desc: 'Celebramos los logros de nuestros niños',
+        folder: 'img/galeria/graduacion/',
+        photos: ['1.jpg', '2.jpg', '3.jpg', '4.jpg']
+      }
+    };
+
+    const menu = document.getElementById('galeriaMenu');
+    const grid = document.getElementById('photosGrid');
+    const titleEl = document.getElementById('catTitle');
+    const descEl = document.getElementById('catDesc');
+
+    function showCategory(key) {
+      const cat = categorias[key];
+      titleEl.textContent = cat.title;
+      descEl.textContent = cat.desc;
+
+      if (!cat.photos || cat.photos.length === 0) {
+        grid.innerHTML = `<div class="empty-msg">Aún no hay fotos en esta categoría.<br>Coloca las imágenes en <code>${cat.folder}</code></div>`;
+        return;
+      }
+
+      grid.innerHTML = cat.photos.map(file => `
+        <div class="photo-item">
+          <img src="${cat.folder}${file}" alt="${cat.title}"
+               onerror="this.parentElement.innerHTML='<div class=\\'placeholder\\'>📷</div>'">
+        </div>
+      `).join('');
+    }
+
+    menu.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        menu.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        showCategory(btn.dataset.cat);
+      });
+    });
+
+    showCategory('semana-cultural');
+  </script>
+</body>
+</html>

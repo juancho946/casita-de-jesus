@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Equipo - Jardín Infantil Casita de Jesús</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    body { background: #fff9f0; }
+    .wave-top {
+      background: #4fc3f7; height: 36px; position: relative;
+    }
+    .wave-top::after {
+      content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 36px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,60 C150,120 350,0 600,60 C850,120 1050,0 1200,60 L1200,120 L0,120 Z' fill='%23fff9f0'/%3E%3C/svg%3E") no-repeat;
+      background-size: 100% 100%;
+    }
+    .page-title-bar { padding: 28px 0 10px; text-align: center; }
+    .page-title-bar h1 { font-size: 36px; font-weight: 900; color: #4fc3f7; }
+
+    .about-lina {
+      display: grid; grid-template-columns: 260px 1fr; gap: 40px;
+      background: white; border-radius: 18px; padding: 36px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06); margin-bottom: 50px; align-items: start;
+    }
+    .about-photo {
+      width: 100%; aspect-ratio: 1; border-radius: 16px; overflow: hidden;
+      border: 4px solid #4fc3f7; box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      background: linear-gradient(135deg, #ffb300, #ff8f00);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .about-photo img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .about-photo .fallback {
+      font-size: 72px; color: white; font-weight: 900;
+    }
+    .about-content h2 { font-size: 26px; font-weight: 900; color: #01579b; margin-bottom: 6px; }
+    .about-content .role {
+      display: inline-block; background: rgba(233,30,99,0.1); color: #e91e63;
+      font-weight: 700; font-size: 13px; padding: 4px 14px; border-radius: 20px; margin-bottom: 18px;
+    }
+    .about-content p { color: #555; font-size: 15.5px; line-height: 1.75; margin-bottom: 14px; }
+
+    .priorities { margin-bottom: 50px; }
+    .priorities-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px;
+    }
+    .priority-card {
+      background: white; border-radius: 14px; padding: 22px 18px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05); border-top: 4px solid #4fc3f7;
+    }
+    .priority-card:nth-child(2) { border-top-color: #ffb300; }
+    .priority-card:nth-child(3) { border-top-color: #81c784; }
+    .priority-card:nth-child(4) { border-top-color: #e91e63; }
+    .priority-card:nth-child(5) { border-top-color: #8e24aa; }
+    .priority-card h3 { font-size: 16px; font-weight: 800; color: #01579b; margin-bottom: 6px; }
+    .priority-card p { font-size: 13.5px; color: #666; line-height: 1.5; }
+
+    .team-intro { text-align: center; max-width: 680px; margin: 0 auto 30px; color: #666; font-size: 15.5px; }
+
+    .team-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 260px)); gap: 28px;
+      justify-content: center;
+    }
+    .team-card {
+      background: white; border-radius: 16px; overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06); text-align: center;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .team-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.1); }
+    .team-avatar {
+      height: 200px; background: linear-gradient(135deg, #4fc3f7, #0288d1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 48px; color: white; font-weight: 900; overflow: hidden;
+    }
+    .team-avatar img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .team-card:nth-child(2) .team-avatar { background: linear-gradient(135deg, #ffb300, #ff8f00); }
+    .team-info { padding: 18px 14px 22px; }
+    .team-info h4 { font-size: 18px; font-weight: 800; color: #01579b; margin-bottom: 4px; }
+    .team-info span { font-size: 14px; color: #777; font-weight: 600; }
+
+    @media (max-width: 800px) {
+      .about-lina { grid-template-columns: 1fr; text-align: center; }
+      .about-photo { max-width: 220px; margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <img src="img/logo.png" alt="Casita de Jesús" class="logo-img" onerror="this.style.display='none'">
+        <div class="logo-text">
+          <span class="logo-main">Casita de Jesús</span>
+          <span class="logo-sub">Jardín Infantil / Sala Cuna</span>
+        </div>
+      </a>
+      <button class="menu-toggle" aria-label="Abrir menú" onclick="document.querySelector('.main-nav').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="equipo.html" class="active">Equipo</a></li>
+          <li><a href="pedagogia.html">Pedagogía</a></li>
+          <li><a href="jardin.html">Jardín</a></li>
+          <li><a href="galeria.html">Galería</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wave-top"></div>
+  <div class="page-title-bar"><div class="container"><h1>Nuestro Equipo</h1></div></div>
+
+  <section class="section" style="padding-top: 20px;">
+    <div class="container">
+
+      <!-- SOBRE LINA -->
+      <div class="about-lina">
+        <div class="about-photo">
+          <!-- Foto: img/equipo/lina.jpg -->
+          <img src="img/equipo/lina.jpg" alt="Lina - Directora" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="fallback" style="display:none;">L</div>
+        </div>
+        <div class="about-content">
+          <h2>Lina</h2>
+          <span class="role">Directora</span>
+          <p>Soy Lina, una mujer profundamente enamorada de la infancia y de la hermosa misión de guiar a los niños en su crecimiento con amor, respeto y felicidad. Mi vida ha estado siempre al servicio de los más pequeños y de sus familias, con la certeza de que una niñez vivida desde el amor y la alegría es la semilla de una sociedad más equilibrada, consciente y armoniosa.</p>
+          <p>Dirijo Casita de Jesús con el alma y el corazón, creando un espacio donde cada niño es valorado en su autenticidad, donde su esencia es respetada y donde pueden florecer en un ambiente seguro, amoroso y lleno de magia. Para mí, la educación es un acto sagrado, una oportunidad de sembrar en cada niño la confianza, la curiosidad y la seguridad de que son seres maravillosos, capaces de transformar el mundo con su luz.</p>
+          <p>Acompaño a las familias con la certeza de que la crianza es un camino de amor y crecimiento mutuo. Creo en una educación holística, donde la mente, el corazón y el espíritu se nutren juntos, permitiendo que cada niño explore su ser con libertad y felicidad.</p>
+          <p>En Casita de Jesús, cultivamos amor, respeto y conciencia, porque sabemos que en cada niño habita un universo lleno de posibilidades y que, con la guía adecuada, podemos construir un mundo más hermoso para todos.</p>
+        </div>
+      </div>
+
+      <!-- PRIORIDADES -->
+      <div class="priorities">
+        <div class="section-title" style="margin-bottom: 28px;">
+          <span class="section-badge">Nuestras prioridades</span>
+          <h2>Un espacio educativo</h2>
+        </div>
+        <div class="priorities-grid">
+          <div class="priority-card">
+            <h3>🤝 Aprender juntos a vivir</h3>
+            <p>Construimos una comunidad de aprendizaje donde niños, familias y educadores crecen juntos.</p>
+          </div>
+          <div class="priority-card">
+            <h3>👨‍👩‍👧 Educación compartida</h3>
+            <p>La familia es nuestro aliado principal. Trabajamos de la mano con los padres.</p>
+          </div>
+          <div class="priority-card">
+            <h3>🔒 Estabilidad y regularidad</h3>
+            <p>Ofrecemos un entorno predecible y seguro que genera confianza y bienestar.</p>
+          </div>
+          <div class="priority-card">
+            <h3>💬 Relacionarse para crecer</h3>
+            <p>Fomentamos vínculos sanos y habilidades sociales para toda la vida.</p>
+          </div>
+          <div class="priority-card">
+            <h3>🎨 Actividades de aprendizaje</h3>
+            <p>Experiencias significativas y lúdicas que despiertan la curiosidad.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- EQUIPO (solo Lina y Karen) -->
+      <div class="section-title" style="margin-bottom: 20px;">
+        <span class="section-badge">Nuestro equipo</span>
+        <h2>Quienes acompañan a tus hijos</h2>
+      </div>
+      <p class="team-intro">
+        Un equipo dedicado con amor y experiencia al desarrollo integral de cada niño y niña.
+      </p>
+
+      <!--
+        FOTOS:
+        - img/equipo/lina.jpg
+        - img/equipo/karen.jpg
+      -->
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">
+            <img src="img/equipo/lina.jpg" alt="Lina" onerror="this.style.display='none'; this.parentElement.textContent='L';">
+          </div>
+          <div class="team-info">
+            <h4>Lina</h4>
+            <span>Directora</span>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">
+            <img src="img/equipo/karen.jpg" alt="Karen" onerror="this.style.display='none'; this.parentElement.textContent='K';">
+          </div>
+          <div class="team-info">
+            <h4>Karen</h4>
+            <span>Docente</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo-main">Casita de Jesús</div>
+          <p>Jardín Infantil y Sala Cuna. Un espacio donde cada niño florece con amor, respeto y felicidad.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="equipo.html">Equipo</a></li>
+            <li><a href="pedagogia.html">Pedagogía</a></li>
+            <li><a href="jardin.html">Jardín</a></li>
+            <li><a href="galeria.html">Galería</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <ul>
+            <li>📍 Dirección por confirmar</li>
+            <li>📞 Teléfono por confirmar</li>
+            <li>✉️ info@casitadejesus.cl</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 Jardín Infantil Casita de Jesús. Todos los derechos reservados.</div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedagogía - Jardín Infantil Casita de Jesús</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    body { background: #fff9f0; }
+
+    .wave-top {
+      background: #4fc3f7;
+      height: 36px;
+      position: relative;
+    }
+    .wave-top::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 36px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,60 C150,120 350,0 600,60 C850,120 1050,0 1200,60 L1200,120 L0,120 Z' fill='%23fff9f0'/%3E%3C/svg%3E") no-repeat;
+      background-size: 100% 100%;
+    }
+
+    .page-title-bar {
+      padding: 28px 0 8px;
+      text-align: center;
+    }
+    .page-title-bar h1 {
+      font-size: 36px;
+      font-weight: 900;
+      color: #4fc3f7;
+    }
+
+    /* Tabs más suaves */
+    .tabs {
+      background: white;
+      border-radius: 50px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+      max-width: 520px;
+      margin: 0 auto 40px;
+      padding: 8px;
+    }
+    .tab-btn {
+      border-radius: 40px;
+      font-weight: 800;
+    }
+    .tab-btn.active {
+      background: #ffb300;
+      color: white;
+      box-shadow: 0 4px 12px rgba(255,179,0,0.4);
+    }
+
+    /* Filosofía */
+    .filosofia-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    .filosofia-card {
+      background: white;
+      border-radius: 18px;
+      padding: 28px 24px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+      border-top: 5px solid #4fc3f7;
+    }
+    .filosofia-card.vision { border-top-color: #ffb300; }
+    .filosofia-card.filo { border-top-color: #81c784; }
+    .filosofia-card h3 {
+      font-size: 19px;
+      font-weight: 900;
+      color: #0288d1;
+      margin-bottom: 12px;
+    }
+    .filosofia-card p {
+      color: #666;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+    .filosofia-text {
+      background: white;
+      border-radius: 18px;
+      padding: 32px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    }
+    .filosofia-text p {
+      color: #666;
+      font-size: 15.5px;
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    /* Niveles - estilo más cercano al original */
+    .niveles-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 30px;
+      align-items: start;
+    }
+    .niveles-photos {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .nivel-photo {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 4px solid #4fc3f7;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      background: #e0f7fa;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+    }
+
+    .accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .accordion-item {
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      overflow: hidden;
+      border: 2px solid #e0f2fe;
+    }
+    .accordion-header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 20px;
+      background: white;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 800;
+      color: #0288d1;
+      text-align: left;
+      transition: background 0.2s;
+    }
+    .accordion-header:hover { background: #f0f9ff; }
+    .accordion-item.open .accordion-header {
+      background: #4fc3f7;
+      color: white;
+    }
+    .accordion-item.open .accordion-header .acc-icon {
+      background: #ffb300;
+      color: white;
+    }
+    .acc-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: #ffb300;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 900;
+      flex-shrink: 0;
+      transition: 0.25s;
+    }
+    .accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+    .accordion-item.open .accordion-body {
+      max-height: 500px;
+    }
+    .accordion-content {
+      padding: 8px 20px 20px;
+      background: #fff8e1;
+      color: #5d4037;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* Admisiones */
+    .admisiones-block {
+      background: white;
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+      margin-bottom: 24px;
+    }
+    .admisiones-block h3 {
+      font-size: 19px;
+      font-weight: 900;
+      color: #0288d1;
+      margin-bottom: 14px;
+    }
+    .admisiones-block p {
+      color: #666;
+      font-size: 15.5px;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .admisiones-block ul { margin-top: 10px; }
+    .admisiones-block li {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 8px;
+      color: #555;
+      font-size: 15px;
+    }
+    .admisiones-block li::before {
+      content: '✓';
+      color: #43a047;
+      font-weight: 900;
+    }
+    .highlight-box {
+      background: #e3f2fd;
+      border-left: 5px solid #0288d1;
+      border-radius: 0 12px 12px 0;
+      padding: 16px 20px;
+      margin: 18px 0;
+      font-weight: 700;
+      color: #01579b;
+      font-size: 15px;
+    }
+
+    @media (max-width: 800px) {
+      .niveles-layout { grid-template-columns: 1fr; }
+      .niveles-photos { flex-direction: row; overflow-x: auto; }
+      .nivel-photo { min-width: 200px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <img src="img/logo.png" alt="Casita de Jesús" class="logo-img" onerror="this.style.display='none'">
+        <div class="logo-text">
+          <span class="logo-main">Casita de Jesús</span>
+          <span class="logo-sub">Jardín Infantil / Sala Cuna</span>
+        </div>
+      </a>
+      <button class="menu-toggle" aria-label="Abrir menú" onclick="document.querySelector('.main-nav').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="equipo.html">Equipo</a></li>
+          <li><a href="pedagogia.html" class="active">Pedagogía</a></li>
+          <li><a href="jardin.html">Jardín</a></li>
+          <li><a href="galeria.html">Galería</a></li>
+          
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wave-top"></div>
+  <div class="page-title-bar">
+    <div class="container"><h1>Pedagogía</h1></div>
+  </div>
+
+  <section class="section" style="padding-top: 10px;">
+    <div class="container">
+
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" data-tab="filosofia">Filosofía</button>
+        <button class="tab-btn" data-tab="niveles">Niveles</button>
+        <button class="tab-btn" data-tab="admisiones">Admisiones</button>
+      </div>
+
+      <!-- FILOSOFÍA -->
+      <div id="filosofia" class="tab-panel active">
+        <div class="filosofia-grid">
+          <div class="filosofia-card">
+            <h3>🎯 Misión</h3>
+            <p>Brindar un espacio educativo de alto rendimiento pedagógico donde los niños y niñas desde los 0 a los 6 años se desarrollen armónicamente en un clima de amor, valoración y respeto.</p>
+          </div>
+          <div class="filosofia-card vision">
+            <h3>🌟 Visión</h3>
+            <p>Ser una institución sólida y referente en educación inicial, reconocida por su propuesta holística y por sembrar en cada niño la confianza y la curiosidad.</p>
+          </div>
+          <div class="filosofia-card filo">
+            <h3>💛 Filosofía</h3>
+            <p>Creemos en una educación holística donde mente, corazón y espíritu se nutren juntos. Cada niño es valorado en su autenticidad.</p>
+          </div>
+        </div>
+        <div class="filosofia-text">
+          <p>Brindar tranquilidad emocional a las familias es para nosotros nuestra prioridad. Para conseguir esto, hay un libre acceso de las mismas al Jardín y la interacción con todo el personal de la Institución se da en un ambiente grato, lo cual permite que se creen lazos afectivos entre todos los integrantes de la comunidad educativa.</p>
+          <p>Este proceso le da transparencia a nuestro quehacer diario, permitiendo el diálogo, la franqueza y la crítica constructiva en ambas direcciones, con el fin de ir mejorando progresivamente en bien de toda nuestra comunidad, y especialmente de los niños y niñas que forman parte de la Institución.</p>
+          <p>Nuestro Jardín se presenta como una institución sólida de alto rendimiento pedagógico y con un variado programa para los niños/as y papás que conforman la comunidad preescolar.</p>
+        </div>
+      </div>
+
+      <!-- NIVELES -->
+      <div id="niveles" class="tab-panel">
+        <div class="niveles-layout">
+          <div class="niveles-photos">
+            <div class="nivel-photo">👶</div>
+            <div class="nivel-photo">🧒</div>
+          </div>
+
+          <div class="accordion">
+            <div class="accordion-item open">
+              <button class="accordion-header" onclick="toggleAccordion(this)">
+                <span class="acc-icon">▾</span> Caminadores
+              </button>
+              <div class="accordion-body">
+                <div class="accordion-content">
+                  <p>Durante esta etapa fundamental para el desarrollo, el pequeño va a experimentar grandes cambios y progresos en todos sus ámbitos de desarrollo: mental, motor, afectivo, social y de lenguaje, siendo la base para los próximos años.</p>
+                  <p style="margin-top:12px;">En esta etapa, el pequeño va a ser estimulado personalizadamente, desarrollando sus habilidades de acuerdo a su ritmo de crecimiento y desarrollo.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-header" onclick="toggleAccordion(this)">
+                <span class="acc-icon">▸</span> Exploradores
+              </button>
+              <div class="accordion-body">
+                <div class="accordion-content">
+                  <p>Los niños exploran el mundo con mayor autonomía. Se potencia el movimiento, la curiosidad y las primeras interacciones sociales a través del juego libre y guiado.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-header" onclick="toggleAccordion(this)">
+                <span class="acc-icon">▸</span> Casita de Jesús
+              </button>
+              <div class="accordion-body">
+                <div class="accordion-content">
+                  <p>Etapa de gran expansión del lenguaje y la autonomía. Acompañamos el descubrimiento del “yo” y del “nosotros” con juego, arte y movimiento.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-header" onclick="toggleAccordion(this)">
+                <span class="acc-icon">▸</span> Cariñositos Pre-Jardín
+              </button>
+              <div class="accordion-body">
+                <div class="accordion-content">
+                  <p>Los niños amplían su mundo social y cognitivo. Propuestas de juego, proyectos cortos y experiencias que despiertan la curiosidad y el pensamiento.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-header" onclick="toggleAccordion(this)">
+                <span class="acc-icon">▸</span> Pequeños Sabios-Jardín
+              </button>
+              <div class="accordion-body">
+                <div class="accordion-content">
+                  <p>Consolidación de aprendizajes a través de proyectos, expresión artística y fortalecimiento de la autonomía y el trabajo colaborativo.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-header" onclick="toggleAccordion(this)">
+                <span class="acc-icon">▸</span> Sala Grandes Sabios-Transición
+              </button>
+              <div class="accordion-body">
+                <div class="accordion-content">
+                  <p>Preparación respetuosa hacia la educación formal. Se trabaja el pensamiento crítico, la lectoescritura, el numeración y la responsabilidad de forma lúdica y significativa.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ADMISIONES -->
+      <div id="admisiones" class="tab-panel">
+        <div class="admisiones-block">
+          <h3>📋 Proceso de admisión</h3>
+          <p>En caso de estar interesados en conocer nuestra Institución, rogamos se comuniquen a nuestro teléfono, con la finalidad de concertar una cita con nuestra Directora.</p>
+          <p>En esta cita, el Equipo Directivo les acompañará en una visita guiada por las instalaciones del Jardín y se les informará acerca de nuestra metodología y forma de enseñanza.</p>
+          <div class="highlight-box">
+            Nuestra Institución trabaja con cupos limitados, por ello es importante que, en caso de estar interesados, hagan la reserva de cupo con anticipación.
+          </div>
+          <p>El período de inscripciones está abierto durante todo el año, a pesar de que las matriculaciones deben reservarse con antelación.</p>
+        </div>
+
+        <div class="admisiones-block">
+          <h3>👕 Uniformes</h3>
+          <p>A los niños, al finalizar su período de Sala-Cuna, se les enseña a reconocer su ropa y a asumir la responsabilidad de sus cosas. Mientras aprenden, es necesario disponer de delantales y sudadera.</p>
+          <p>Para las actividades del jardín se requieren dos uniformes:</p>
+          <ul>
+            <li>Sudadera para gimnasia, paseos y salidas</li>
+            <li>Delantal para las actividades comunes del Jardín</li>
+          </ul>
+        </div>
+
+        <div class="admisiones-block">
+          <h3>📌 Normas en cuanto a prendas</h3>
+          <p>A los papitos y mamitas les pedimos el favor de que los niños y niñas acudan al Jardín sin joyas, juguetes o juegos para evitar posibles pérdidas o accidentes.</p>
+          <p>El Jardín no se hace responsable de las joyas extraviadas, además de remarcar la peligrosidad que muchas de éstas tienen para la salud de los niños y niñas.</p>
+        </div>
+
+        <div style="text-align:center; margin-top: 28px;">
+          <a href="contacto.html" class="btn btn-primary">Agenda tu visita</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo-main">Casita de Jesús</div>
+          <p>Jardín Infantil y Sala Cuna. Un espacio donde cada niño florece con amor, respeto y felicidad.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="equipo.html">Equipo</a></li>
+            <li><a href="pedagogia.html">Pedagogía</a></li>
+            <li><a href="jardin.html">Jardín</a></li>
+            <li><a href="galeria.html">Galería</a></li>
+            
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <ul>
+            <li>📍 Dirección por confirmar</li>
+            <li>📞 Teléfono por confirmar</li>
+            <li>✉️ info@parvulos.cl</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 Jardín Infantil Casita de Jesús. Todos los derechos reservados.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.tab).classList.add('active');
+      });
+    });
+
+    function toggleAccordion(header) {
+      const item = header.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.accordion-item').forEach(i => {
+        i.classList.remove('open');
+        const icon = i.querySelector('.acc-icon');
+        if (icon) icon.textContent = '▸';
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        header.querySelector('.acc-icon').textContent = '▾';
+      }
+    }
+  </script>
+</body>
+</html>
