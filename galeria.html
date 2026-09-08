@@ -102,7 +102,18 @@
     </div>
   </footer>
 
+  <a href="https://wa.me/573102165699" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">💬</a>
+
   <button class="scroll-top" id="scrollTop" aria-label="Volver arriba">↑</button>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lbClose" aria-label="Cerrar">✕</button>
+    <button class="nav-btn prev" id="lbPrev" aria-label="Anterior">‹</button>
+    <img id="lbImg" src="" alt="">
+    <button class="nav-btn next" id="lbNext" aria-label="Siguiente">›</button>
+    <div class="lightbox-caption" id="lbCaption"></div>
+  </div>
 
   <script>
     const scrollBtn = document.getElementById('scrollTop');
@@ -126,6 +137,14 @@
       });
     }, { threshold: 0.15 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    document.addEventListener('click', (e) => {
+      const nav = document.querySelector('.main-nav');
+      const toggle = document.querySelector('.menu-toggle');
+      if (nav && nav.classList.contains('open') && !nav.contains(e.target) && !toggle.contains(e.target)) {
+        nav.classList.remove('open');
+      }
+    });
 
     /*
       ============================================
@@ -195,23 +214,70 @@
     const titleEl = document.getElementById('catTitle');
     const descEl = document.getElementById('catDesc');
 
+    let currentPhotos = [];
+    let currentIdx = 0;
+
     function showCategory(key) {
       const cat = categorias[key];
       titleEl.textContent = cat.title;
       descEl.textContent = cat.desc;
 
       if (!cat.photos || cat.photos.length === 0) {
-        grid.innerHTML = `<div class="empty-msg">Aún no hay fotos en esta categoría.<br>Coloca las imágenes en <code>${cat.folder}</code></div>`;
+        grid.innerHTML = '<div class="empty-msg">Aún no hay fotos en esta categoría.<br>Coloca las imágenes en <code>' + cat.folder + '</code></div>';
+        currentPhotos = [];
         return;
       }
 
-      grid.innerHTML = cat.photos.map(file => `
-        <div class="photo-item">
-          <img src="${cat.folder}${file}" alt="${cat.title}"
-               onerror="this.parentElement.innerHTML='<div class=\\'placeholder\\'>📷</div>'">
-        </div>
-      `).join('');
+      currentPhotos = cat.photos.map(f => cat.folder + f);
+
+      grid.innerHTML = currentPhotos.map((src, i) =>
+        '<div class="photo-item" data-idx="' + i + '">' +
+          '<img src="' + src + '" alt="' + cat.title + ' ' + (i + 1) + '">' +
+        '</div>'
+      ).join('');
+
+      grid.querySelectorAll('.photo-item').forEach(item => {
+        item.addEventListener('click', () => openLightbox(parseInt(item.dataset.idx)));
+      });
     }
+
+    /* Lightbox */
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    const lbCaption = document.getElementById('lbCaption');
+
+    function openLightbox(idx) {
+      if (idx < 0 || idx >= currentPhotos.length) return;
+      currentIdx = idx;
+      lbImg.src = currentPhotos[idx];
+      lbCaption.textContent = (idx + 1) + ' / ' + currentPhotos.length;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('lbClose').addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+
+    document.getElementById('lbPrev').addEventListener('click', (e) => {
+      e.stopPropagation();
+      openLightbox((currentIdx - 1 + currentPhotos.length) % currentPhotos.length);
+    });
+    document.getElementById('lbNext').addEventListener('click', (e) => {
+      e.stopPropagation();
+      openLightbox((currentIdx + 1) % currentPhotos.length);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') openLightbox((currentIdx - 1 + currentPhotos.length) % currentPhotos.length);
+      if (e.key === 'ArrowRight') openLightbox((currentIdx + 1) % currentPhotos.length);
+    });
 
     menu.querySelectorAll('button').forEach(btn => {
       btn.addEventListener('click', () => {

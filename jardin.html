@@ -120,6 +120,8 @@
     </div>
   </footer>
 
+  <a href="https://wa.me/573102165699" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">💬</a>
+
   <button class="scroll-top" id="scrollTop" aria-label="Volver arriba">↑</button>
 
   <script>
@@ -144,6 +146,14 @@
       });
     }, { threshold: 0.15 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    document.addEventListener('click', (e) => {
+      const nav = document.querySelector('.main-nav');
+      const toggle = document.querySelector('.menu-toggle');
+      if (nav && nav.classList.contains('open') && !nav.contains(e.target) && !toggle.contains(e.target)) {
+        nav.classList.remove('open');
+      }
+    });
   </script>
 
 </body>

@@ -91,6 +91,22 @@
           </div>
         </div>
 
+        <!-- Mapa -->
+        <div class="map-card">
+          <h2>📍 ¿Dónde estamos?</h2>
+          <div class="map-wrapper">
+            <iframe
+              src="https://www.google.com/maps?q=Calle+25+sur+15C-34+Paseo+Real+Bogota&output=embed"
+              width="100%"
+              height="300"
+              style="border:0;"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+
         <!-- Google Form -->
         <div class="form-card">
           <h2>Escríbenos</h2>
@@ -143,6 +159,8 @@
     </div>
   </footer>
 
+  <a href="https://wa.me/573102165699" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">💬</a>
+
   <button class="scroll-top" id="scrollTop" aria-label="Volver arriba">↑</button>
 
   <script>
@@ -167,6 +185,14 @@
       });
     }, { threshold: 0.15 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    document.addEventListener('click', (e) => {
+      const nav = document.querySelector('.main-nav');
+      const toggle = document.querySelector('.menu-toggle');
+      if (nav && nav.classList.contains('open') && !nav.contains(e.target) && !toggle.contains(e.target)) {
+        nav.classList.remove('open');
+      }
+    });
   </script>
 
 </body>

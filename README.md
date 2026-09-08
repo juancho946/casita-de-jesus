@@ -49,9 +49,19 @@ En el footer hay botones de WhatsApp configurado con el número real. Los de Fac
 ### 7. Agendar una reserva de cupo
 En `index.html` y `pedagogia.html` el botón "Agenda tu visita" enlaza a la página de contacto.
 
+## Características extras
+- **Botón flotante de WhatsApp** en todas las páginas (abre conversación al número real).
+- **Lightbox en la galería**: al hacer clic en una foto se amplía; navegación con teclado (←/→/Esc) y flechas.
+- **Mapa de Google** embebido en `contacto.html` con la dirección del jardín.
+- **Página 404 personalizada** (`404.html`) para enlaces rotos.
+- **Menú móvil** que se cierra al hacer clic en un enlace o fuera de él.
+- **Botón "volver arriba"** en todas las páginas.
+- **Animaciones** suaves al hacer scroll (fade-in).
+
 ## SEO
 - `sitemap.xml`: mapa del sitio para Google
 - `robots.txt`: reglas de rastreo
+- `404.html`: página de error personalizada
 - Metatags Open Graph en todas las páginas para compartir en redes
 
 ## Cómo ver el sitio localmente

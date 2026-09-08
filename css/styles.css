@@ -1524,6 +1524,32 @@ ul {
   }
 }
 
+/* Mapa en página de contacto */
+.map-card {
+  background: white;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+  margin-top: 24px;
+}
+.map-card h2 {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+.map-wrapper {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+}
+.map-wrapper iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+  display: block;
+}
+
 /* ========== JARDIN PAGE ========== */
 .jardin-layout {
   display: grid;
@@ -1837,4 +1863,127 @@ ul {
     opacity: 1;
     transform: none;
   }
+}
+
+/* ========== BOTÓN FLOTANTE WHATSAPP ========== */
+.wa-float {
+  position: fixed;
+  bottom: 84px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  box-shadow: 0 6px 20px rgba(37,211,102,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  transition: transform 0.25s, box-shadow 0.25s;
+  color: white;
+  font-size: 28px;
+  text-decoration: none;
+}
+.wa-float:hover {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 10px 25px rgba(37,211,102,0.55);
+}
+
+/* ========== LIGHTBOX (GALERÍA) ========== */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  z-index: 500;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.lightbox.open {
+  display: flex;
+}
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  background: none;
+  border: none;
+  line-height: 1;
+  transition: transform 0.2s;
+}
+.lightbox-close:hover {
+  transform: rotate(90deg);
+}
+.lightbox .nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 10px;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+.lightbox .nav-btn:hover {
+  opacity: 1;
+}
+.lightbox .nav-btn.prev { left: 15px; }
+.lightbox .nav-btn.next { right: 15px; }
+.lightbox-caption {
+  position: absolute;
+  bottom: 24px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 15px;
+  opacity: 0.9;
+}
+
+/* ========== PÁGINA 404 ========== */
+.error-page {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 24px;
+}
+.error-page .code {
+  font-size: 120px;
+  font-weight: 900;
+  line-height: 1;
+  background: linear-gradient(90deg, #e91e63, #ff9800, #4fc3f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.error-page h1 {
+  font-size: 30px;
+  font-weight: 900;
+  color: var(--primary-dark);
+  margin: 10px 0;
+}
+.error-page p {
+  font-size: 16px;
+  color: var(--text-light);
+  max-width: 420px;
+  margin-bottom: 24px;
 }

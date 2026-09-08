@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página no encontrada | Jardín Infantil Casita de Jesús</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="robots" content="noindex">
+  <meta name="description" content="La página que buscas no existe. Vuelve al inicio del Jardín Infantil Casita de Jesús.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <img src="img/logo.png" alt="Casita de Jesús" class="logo-img" onerror="this.style.display='none'">
+        <div class="logo-text">
+          <span class="logo-main">Casita de Jesús</span>
+          <span class="logo-sub">Jardín Infantil</span>
+        </div>
+      </a>
+
+      <button class="menu-toggle" aria-label="Abrir menú" onclick="document.querySelector('.main-nav').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav">
+        <ul>
+          <li><a href="equipo.html" onclick="document.querySelector('.main-nav').classList.remove('open')">Equipo</a></li>
+          <li><a href="pedagogia.html" onclick="document.querySelector('.main-nav').classList.remove('open')">Pedagogía</a></li>
+          <li><a href="jardin.html" onclick="document.querySelector('.main-nav').classList.remove('open')">Jardín</a></li>
+          <li><a href="galeria.html" onclick="document.querySelector('.main-nav').classList.remove('open')">Galería</a></li>
+          <li><a href="contacto.html" onclick="document.querySelector('.main-nav').classList.remove('open')">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ERROR 404 -->
+  <section class="error-page">
+    <div class="container">
+      <div class="code">404</div>
+      <h1>¡Ups! Página no encontrada</h1>
+      <p>La página que buscas no existe o fue movida. Vuelve al inicio para seguir explorando nuestro jardín.</p>
+      <a href="index.html" class="btn btn-primary">Volver al inicio</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo-main">Casita de Jesús</div>
+          <p>Jardín Infantil. Un espacio donde cada niño florece con amor, respeto y felicidad.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="equipo.html">Equipo</a></li>
+            <li><a href="pedagogia.html">Pedagogía</a></li>
+            <li><a href="jardin.html">Jardín</a></li>
+            <li><a href="galeria.html">Galería</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <ul>
+            <li><a class="footer-link" href="https://www.google.com/maps/search/?api=1&query=Calle+25+sur+15C-34+barrio+Paseo+Real" target="_blank" rel="noopener">📍 Calle 25 sur # 15C-34 barrio Paseo Real</a></li>
+            <li><a class="footer-link" href="tel:+573102165699">📞 310-216-5699</a></li>
+            <li><a class="footer-link" href="mailto:info@casitadejesus.cl">✉️ info@casitadejesus.cl</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2026 Jardín Infantil Casita de Jesús. Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('click', (e) => {
+      const nav = document.querySelector('.main-nav');
+      const toggle = document.querySelector('.menu-toggle');
+      if (nav && nav.classList.contains('open') && !nav.contains(e.target) && !toggle.contains(e.target)) {
+        nav.classList.remove('open');
+      }
+    });
+  </script>
+
+</body>
+</html>
