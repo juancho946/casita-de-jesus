@@ -22,8 +22,10 @@ Coloca el logo en `img/logo.png`
 
 ### 2. Fotos de las profesoras (página Equipo)
 Carpeta: `img/equipo/`
-- `katherine.jpg` (Directora)
+- `katherine.jpg` (Directora) — **pendiente de agregar**, actualmente se muestra la inicial "K"
 - `karen.jpg` (Docente)
+
+> Nota: el logo (`img/logo.png`) y la foto del hero (`img/kids.jpg`) ya fueron optimizados. Si reemplazas el logo, trata de que pese menos de 200 KB.
 
 ### 3. Fotos de eventos (página Galería)
 Carpeta: `img/galeria/` con subcarpetas:
