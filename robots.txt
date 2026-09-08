@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /img/galeria/
+Disallow: /img/equipo/
+Disallow: /css/
 
 Sitemap: https://juancho946.github.io/casita-de-jesus/sitemap.xml

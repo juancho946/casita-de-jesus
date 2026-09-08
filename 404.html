@@ -5,9 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Página no encontrada | Jardín Infantil Casita de Jesús</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
   <meta name="robots" content="noindex">
   <meta name="description" content="La página que buscas no existe. Vuelve al inicio del Jardín Infantil Casita de Jesús.">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/styles.min.css">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;">
 </head>
 <body>
 
@@ -15,7 +19,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="logo">
-        <img src="img/logo.png" alt="Casita de Jesús" class="logo-img" onerror="this.style.display='none'">
+        <img src="img/logo.png" alt="Casita de Jesús" class="logo-img" width="200" height="200" onerror="this.style.display='none'">
         <div class="logo-text">
           <span class="logo-main">Casita de Jesús</span>
           <span class="logo-sub">Jardín Infantil</span>
@@ -69,15 +73,13 @@
         <div class="footer-col">
           <h4>Contacto</h4>
           <ul>
-            <li><a class="footer-link" href="https://www.google.com/maps/search/?api=1&query=Calle+25+sur+15C-34+barrio+Paseo+Real" target="_blank" rel="noopener">📍 Calle 25 sur # 15C-34 barrio Paseo Real</a></li>
-            <li><a class="footer-link" href="tel:+573102165699">📞 310-216-5699</a></li>
-            <li><a class="footer-link" href="mailto:info@casitadejesus.cl">✉️ info@casitadejesus.cl</a></li>
+            <li><a class="footer-link" href="https://www.google.com/maps/search/?api=1&query=Calle+25+sur+15C-34+barrio+Paseo+Real" target="_blank" rel="noopener"><span aria-hidden="true">📍</span> Calle 25 sur # 15C-34 barrio Paseo Real</a></li>
+            <li><a class="footer-link" href="tel:+573102165699"><span aria-hidden="true">📞</span> 310-216-5699</a></li>
+            <li><a class="footer-link" href="mailto:info@casitadejesus.co"><span aria-hidden="true">✉️</span> info@casitadejesus.co</a></li>
           </ul>
         </div>
       </div>
-      <div class="footer-bottom">
-        © 2026 Jardín Infantil Casita de Jesús. Todos los derechos reservados.
-      </div>
+      <div class="footer-bottom">&copy; <span id="currentYear"></span> Jardín Infantil Casita de Jesús. Todos los derechos reservados.</div>
     </div>
   </footer>
 
@@ -89,6 +91,7 @@
         nav.classList.remove('open');
       }
     });
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
   </script>
 
 </body>
