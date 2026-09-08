@@ -67,7 +67,13 @@ Actualmente `jardin.html` muestra un placeholder "Próximamente subiremos un vid
 Ya está conectado al Google Form de `contacto.html`. Las respuestas llegan a la cuenta de Google configurada.
 
 ### 6. Redes sociales
-En el footer hay logos reales de WhatsApp, Facebook e Instagram (SVG). WhatsApp ya está configurado con el número real y mensaje predefinido. Los de Facebook e Instagram están como marcadores de posición (`href="#"`) — reemplázalos con las URLs reales cuando existan.
+En el footer hay logos reales (SVG) de **WhatsApp, Facebook, Instagram y TikTok**, todos con sus URLs oficiales:
+- WhatsApp: `https://wa.me/573102165699`
+- Facebook: `https://www.facebook.com/share/19VA4uP5dw/`
+- Instagram: `https://www.instagram.com/jesuscasitade/`
+- TikTok: `https://www.tiktok.com/@casitadejesus`
+
+Si algún día cambian de perfil, actualiza los `href` en el bloque `.social-links` (footer) de los 6 HTML.
 
 ### 7. Agendar una reserva de cupo
 En `index.html` y `pedagogia.html` el botón "Agenda tu visita" enlaza a la página de contacto.
