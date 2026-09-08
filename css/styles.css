@@ -1374,6 +1374,12 @@ ul {
   justify-content: center;
   font-size: 48px;
 }
+.nivel-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
 @media (max-width: 800px) {
   .niveles-layout {
@@ -1430,10 +1436,18 @@ ul {
 /* ========== CONTACTO PAGE ========== */
 .contacto-layout {
   display: grid;
-  grid-template-columns: 320px 1fr;
+  grid-template-columns: 340px 1fr;
   gap: 32px;
   align-items: start;
   padding-bottom: 60px;
+}
+.form-card {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
+.map-card {
+  grid-column: 1;
+  grid-row: 2;
 }
 .info-card {
   background: white;
@@ -1510,30 +1524,20 @@ ul {
 }
 .form-wrapper iframe {
   width: 100%;
-  height: 900px;
+  height: 920px;
   border: none;
   display: block;
 }
 
-@media (max-width: 850px) {
-  .contacto-layout {
-    grid-template-columns: 1fr;
-  }
-  .form-wrapper iframe {
-    height: 1000px;
-  }
-}
-
-/* Mapa en página de contacto */
+/* Mapa en página de contacto (columna izquierda, secundario) */
 .map-card {
   background: white;
   border-radius: 18px;
   padding: 20px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-  margin-top: 24px;
 }
 .map-card h2 {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 900;
   color: var(--primary);
   margin-bottom: 12px;
@@ -1545,9 +1549,22 @@ ul {
 }
 .map-wrapper iframe {
   width: 100%;
-  height: 300px;
+  height: 260px;
   border: none;
   display: block;
+}
+
+@media (max-width: 850px) {
+  .contacto-layout {
+    grid-template-columns: 1fr;
+  }
+  .form-card {
+    grid-column: auto;
+    grid-row: auto;
+  }
+  .form-wrapper iframe {
+    height: 1000px;
+  }
 }
 
 /* ========== JARDIN PAGE ========== */
@@ -1847,6 +1864,11 @@ ul {
   transform: translateY(-3px);
   background: var(--accent);
 }
+.social-links svg {
+  width: 20px;
+  height: 20px;
+  fill: white;
+}
 
 /* ========== ENLACES CLICKEABLES EN FOOTER ========== */
 .footer-link {
@@ -1887,8 +1909,12 @@ ul {
   z-index: 200;
   transition: transform 0.25s, box-shadow 0.25s;
   color: white;
-  font-size: 28px;
   text-decoration: none;
+}
+.wa-float svg {
+  width: 30px;
+  height: 30px;
+  fill: white;
 }
 .wa-float:hover {
   transform: scale(1.1) translateY(-2px);

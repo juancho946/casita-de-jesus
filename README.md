@@ -39,14 +39,35 @@ Carpeta: `img/galeria/` con subcarpetas:
 
 Dentro de cada una pon las fotos (`1.jpg`, `2.jpg`, `3.jpg`...) y actualiza la lista `photos` en `galeria.html`.
 
+### 3b. Fotos de los niveles (página Pedagogía)
+Carpeta: `img/niveles/` con una foto por nivel (si faltan se muestra un emoji como respaldo):
+
+| Archivo | Nivel |
+|---------|-------|
+| `parvulos.jpg` | Párvulos |
+| `pre-jardin.jpg` | Pre-Jardín |
+| `jardin.jpg` | Jardín |
+| `kinder.jpg` | Kínder |
+| `transicion.jpg` | Transición |
+
+Recomendación: foto horizontal (formato de 4:3 o similar), de máximo 200–400 KB.
+
 ### 4. Video del jardín (página Jardín)
-Actualmente `jardin.html` muestra un placeholder "Próximamente subiremos un video". Cuando tengas el video de YouTube, reemplaza el bloque `<div class="video-placeholder">...</div>` por un `<iframe>` con el embed de tu video.
+Actualmente `jardin.html` muestra un placeholder "Próximamente subiremos un video". Dentro de `jardin.html` hay un comentario con las instrucciones. En resumen:
+
+1. Sube el video a YouTube (público o "no listado").
+2. En YouTube entra a Compartir → Insertar y copia la URL que empieza con `https://www.youtube.com/embed/...`.
+3. Reemplaza el bloque `<div class="video-placeholder">...</div>` en `jardin.html` por:
+   ```html
+   <iframe width="100%" height="315" src="TU_URL_DE_EMBED" title="Video del jardín" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   ```
+4. Guarda y publica con un commit + push.
 
 ### 5. Formulario de contacto
 Ya está conectado al Google Form de `contacto.html`. Las respuestas llegan a la cuenta de Google configurada.
 
 ### 6. Redes sociales
-En el footer hay botones de WhatsApp configurado con el número real. Los de Facebook e Instagram están como marcadores de posición (`href="#"`) — reemplázalos con las URLs reales cuando existan.
+En el footer hay logos reales de WhatsApp, Facebook e Instagram (SVG). WhatsApp ya está configurado con el número real y mensaje predefinido. Los de Facebook e Instagram están como marcadores de posición (`href="#"`) — reemplázalos con las URLs reales cuando existan.
 
 ### 7. Agendar una reserva de cupo
 En `index.html` y `pedagogia.html` el botón "Agenda tu visita" enlaza a la página de contacto.
