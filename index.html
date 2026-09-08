@@ -6,6 +6,12 @@
   <title>Jardín Infantil Casita de Jesús</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta name="description" content="Jardín Infantil Casita de Jesús. Un espacio ideal para educar a tus hijos con amor, respeto y felicidad.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Jardín Infantil Casita de Jesús">
+  <meta property="og:description" content="Un espacio ideal para educar a tus hijos con amor, respeto y felicidad. ¡Agenda una visita!">
+  <meta property="og:url" content="https://juancho946.github.io/casita-de-jesus/">
+  <meta property="og:image" content="https://juancho946.github.io/casita-de-jesus/img/logo.png">
+  <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -27,11 +33,11 @@
 
       <nav class="main-nav">
         <ul>
-          <li><a href="equipo.html">Equipo</a></li>
-          <li><a href="pedagogia.html">Pedagogía</a></li>
-          <li><a href="jardin.html">Jardín</a></li>
-          <li><a href="galeria.html">Galería</a></li>
-          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="equipo.html" onclick="document.querySelector('.main-nav').classList.remove('open')">Equipo</a></li>
+          <li><a href="pedagogia.html" onclick="document.querySelector('.main-nav').classList.remove('open')">Pedagogía</a></li>
+          <li><a href="jardin.html" onclick="document.querySelector('.main-nav').classList.remove('open')">Jardín</a></li>
+          <li><a href="galeria.html" onclick="document.querySelector('.main-nav').classList.remove('open')">Galería</a></li>
+          <li><a href="contacto.html" onclick="document.querySelector('.main-nav').classList.remove('open')">Contacto</a></li>
         </ul>
       </nav>
     </div>
@@ -78,32 +84,102 @@
   <!-- BREVE INTRO -->
   <section class="section">
     <div class="container">
-      <div class="section-title">
+      <div class="section-title reveal">
         <span class="section-badge">Nuestro propósito</span>
         <h2>Educar con amor, respeto y felicidad</h2>
         <p>En Casita de Jesús creamos un espacio donde cada niño es valorado en su autenticidad y puede florecer en un ambiente seguro, amoroso y lleno de magia.</p>
       </div>
 
       <div class="priorities-grid">
-        <div class="priority-card">
+        <div class="priority-card reveal">
           <div class="priority-icon">💛</div>
           <h3>Amor y respeto</h3>
           <p>Cada niño es atendido en un clima de amor, valoración y respeto desde los 0 a los 6 años.</p>
         </div>
-        <div class="priority-card">
+        <div class="priority-card reveal">
           <div class="priority-icon">🌱</div>
           <h3>Desarrollo integral</h3>
           <p>Desarrollamos armónicamente las capacidades físicas, intelectuales, afectivas, sociales, éticas y estéticas.</p>
         </div>
-        <div class="priority-card">
+        <div class="priority-card reveal">
           <div class="priority-icon">👨‍👩‍👧</div>
           <h3>Educación compartida</h3>
           <p>Acompañamos a las familias en el hermoso camino de la crianza con amor y crecimiento mutuo.</p>
         </div>
-        <div class="priority-card">
+        <div class="priority-card reveal">
           <div class="priority-icon">✨</div>
           <h3>Educación holística</h3>
           <p>Nutrimos mente, corazón y espíritu para que cada niño explore su ser con libertad y felicidad.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUÉ ELEGIRNOS -->
+  <section class="why-section">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="section-badge">¿Por qué elegirnos?</span>
+        <h2>Lo que hace especial a Casita de Jesús</h2>
+        <p>Razones por las que las familias confían en nosotros para el cuidado y educación de sus hijos.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="icon">👶</div>
+          <h3>Atención personalizada</h3>
+          <p>Cada niño es estimulado según su ritmo de crecimiento y desarrollo.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="icon">🏡</div>
+          <h3>Ambiente seguro</h3>
+          <p>Instalaciones con pisos antideslizantes, escaleras protegidas y zona verde.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="icon">🎨</div>
+          <h3>Aprendizaje lúdico</h3>
+          <p>Aprender jugando: experiencias significativas que despiertan la curiosidad.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="icon">👨‍👩‍👧</div>
+          <h3>Familia incluida</h3>
+          <p>Acompañamos a los padres en el camino de la crianza y el crecimiento mutuo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="section-badge">Testimonios</span>
+        <h2>Lo que dicen nuestras familias</h2>
+        <p>Palabras de papás y mamás que hacen parte de nuestra comunidad.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal">
+          <div class="quote">“</div>
+          <p>Mi hijo va feliz todos los días. Se siente el amor y el cuidado en cada detalle. ¡Recomendados!</p>
+          <div class="author">
+            <div class="avatar">M</div>
+            <div><strong>María</strong><span>Mamá de caminador</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="quote">“</div>
+          <p>La atención personalizada y el ambiente seguro me dieron total tranquilidad. Son maravillosos.</p>
+          <div class="author">
+            <div class="avatar">J</div>
+            <div><strong>Julián</strong><span>Papá de pre-jardín</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="quote">“</div>
+          <p>Una educación con amor y valores. Mi hija aprendió muchísimo y creció feliz con ellos.</p>
+          <div class="author">
+            <div class="avatar">C</div>
+            <div><strong>Camila</strong><span>Mamá de jardín</span></div>
+          </div>
         </div>
       </div>
     </div>
@@ -125,6 +201,11 @@
         <div class="footer-brand">
           <div class="logo-main">Casita de Jesús</div>
           <p>Jardín Infantil. Un espacio donde cada niño florece con amor, respeto y felicidad.</p>
+          <div class="social-links">
+            <a href="https://wa.me/573102165699" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+            <a href="#" aria-label="Facebook" onclick="return false;">📘</a>
+            <a href="#" aria-label="Instagram" onclick="return false;">📸</a>
+          </div>
         </div>
         <div class="footer-col">
           <h4>Navegación</h4>
@@ -133,16 +214,15 @@
             <li><a href="pedagogia.html">Pedagogía</a></li>
             <li><a href="jardin.html">Jardín</a></li>
             <li><a href="galeria.html">Galería</a></li>
-            
             <li><a href="contacto.html">Contacto</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Contacto</h4>
           <ul>
-            <li>📍 Calle 25 sur # 15C-34 barrio Paseo Real</li>
-            <li>📞 310-216-5699</li>
-            <li>✉️ info@casitadejesus.cl</li>
+            <li><a class="footer-link" href="https://www.google.com/maps/search/?api=1&query=Calle+25+sur+15C-34+barrio+Paseo+Real" target="_blank" rel="noopener">📍 Calle 25 sur # 15C-34 barrio Paseo Real</a></li>
+            <li><a class="footer-link" href="tel:+573102165699">📞 310-216-5699</a></li>
+            <li><a class="footer-link" href="mailto:info@casitadejesus.cl">✉️ info@casitadejesus.cl</a></li>
           </ul>
         </div>
       </div>
@@ -151,6 +231,38 @@
       </div>
     </div>
   </footer>
+
+  <!-- BOTÓN VOLVER ARRIBA -->
+  <button class="scroll-top" id="scrollTop" aria-label="Volver arriba">↑</button>
+
+  <!-- SCRIPTS -->
+  <script>
+    const scrollBtn = document.getElementById('scrollTop');
+    function onScroll() {
+      if (window.scrollY > 400) {
+        scrollBtn.classList.add('visible');
+      } else {
+        scrollBtn.classList.remove('visible');
+      }
+    }
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+    if (scrollBtn) {
+      scrollBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>

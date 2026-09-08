@@ -6,6 +6,12 @@
   <title>Equipo - Jardín Infantil Casita de Jesús</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta name="description" content="Conoce al equipo del Jardín Infantil Casita de Jesús. Un equipo dedicado con amor y experiencia para el desarrollo integral de tus hijos.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Equipo - Jardín Infantil Casita de Jesús">
+  <meta property="og:description" content="Conoce a las personas que acompañan la educación y el cuidado de tus hijos.">
+  <meta property="og:url" content="https://juancho946.github.io/casita-de-jesus/equipo.html">
+  <meta property="og:image" content="https://juancho946.github.io/casita-de-jesus/img/logo.png">
+  <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -24,11 +30,11 @@
       </button>
       <nav class="main-nav">
         <ul>
-          <li><a href="equipo.html" class="active">Equipo</a></li>
-          <li><a href="pedagogia.html">Pedagogía</a></li>
-          <li><a href="jardin.html">Jardín</a></li>
-          <li><a href="galeria.html">Galería</a></li>
-          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="equipo.html" class="active" onclick="document.querySelector('.main-nav').classList.remove('open')">Equipo</a></li>
+          <li><a href="pedagogia.html" onclick="document.querySelector('.main-nav').classList.remove('open')">Pedagogía</a></li>
+          <li><a href="jardin.html" onclick="document.querySelector('.main-nav').classList.remove('open')">Jardín</a></li>
+          <li><a href="galeria.html" onclick="document.querySelector('.main-nav').classList.remove('open')">Galería</a></li>
+          <li><a href="contacto.html" onclick="document.querySelector('.main-nav').classList.remove('open')">Contacto</a></li>
         </ul>
       </nav>
     </div>
@@ -41,7 +47,7 @@
     <div class="container">
 
       <!-- SOBRE jeimy katherine saenz -->
-      <div class="about-katherine">
+      <div class="about-katherine reveal">
         <div class="about-photo">
           <!-- Foto: img/equipo/katherine.jpg -->
           <img src="img/equipo/katherine.jpg" alt="katherine - Directora" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -58,7 +64,7 @@
       </div>
 
       <!-- PRIORIDADES -->
-      <div class="priorities">
+      <div class="priorities reveal">
         <div class="section-title" style="margin-bottom: 28px;">
           <span class="section-badge">Nuestras prioridades</span>
           <h2>Un espacio educativo</h2>
@@ -101,7 +107,7 @@
         - img/equipo/katherine.jpg
         - img/equipo/karen.jpg
       -->
-      <div class="team-grid">
+      <div class="team-grid reveal">
         <div class="team-card">
           <div class="team-avatar">
             <img src="img/equipo/katherine.jpg" alt="katherine" onerror="this.style.display='none'; this.parentElement.textContent='K';">
@@ -131,6 +137,11 @@
         <div class="footer-brand">
           <div class="logo-main">Casita de Jesús</div>
           <p>Jardín Infantil. Un espacio donde cada niño florece con amor, respeto y felicidad.</p>
+          <div class="social-links">
+            <a href="https://wa.me/573102165699" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+            <a href="#" aria-label="Facebook" onclick="return false;">📘</a>
+            <a href="#" aria-label="Instagram" onclick="return false;">📸</a>
+          </div>
         </div>
         <div class="footer-col">
           <h4>Navegación</h4>
@@ -145,14 +156,40 @@
         <div class="footer-col">
           <h4>Contacto</h4>
           <ul>
-            <li>📍 Calle 25 sur # 15C-34 barrio Paseo Real</li>
-            <li>📞 310-216-5699</li>
-            <li>✉️ info@casitadejesus.cl</li>
+            <li><a class="footer-link" href="https://www.google.com/maps/search/?api=1&query=Calle+25+sur+15C-34+barrio+Paseo+Real" target="_blank" rel="noopener">📍 Calle 25 sur # 15C-34 barrio Paseo Real</a></li>
+            <li><a class="footer-link" href="tel:+573102165699">📞 310-216-5699</a></li>
+            <li><a class="footer-link" href="mailto:info@casitadejesus.cl">✉️ info@casitadejesus.cl</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">© 2026 Jardín Infantil Casita de Jesús. Todos los derechos reservados.</div>
     </div>
   </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Volver arriba">↑</button>
+
+  <script>
+    const scrollBtn = document.getElementById('scrollTop');
+    function onScroll() {
+      if (window.scrollY > 400) scrollBtn.classList.add('visible');
+      else scrollBtn.classList.remove('visible');
+    }
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+    if (scrollBtn) {
+      scrollBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
