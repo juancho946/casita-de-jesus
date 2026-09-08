@@ -10,9 +10,33 @@
   <meta property="og:title" content="Jardín Infantil Casita de Jesús">
   <meta property="og:description" content="Un espacio ideal para educar a tus hijos con amor, respeto y felicidad. ¡Agenda una visita!">
   <meta property="og:url" content="https://juancho946.github.io/casita-de-jesus/">
-  <meta property="og:image" content="https://juancho946.github.io/casita-de-jesus/img/logo.png">
+  <link rel="canonical" href="https://juancho946.github.io/casita-de-jesus/">
+  <meta property="og:image" content="https://juancho946.github.io/casita-de-jesus/img/og-image.jpg">
   <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="css/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Jardín Infantil Casita de Jesús",
+    "alternateName": "Casita de Jesús",
+    "url": "https://juancho946.github.io/casita-de-jesus/",
+    "logo": "https://juancho946.github.io/casita-de-jesus/img/logo.png",
+    "image": "https://juancho946.github.io/casita-de-jesus/img/og-image.jpg",
+    "description": "Jardín infantil con niveles de párvulos, pre-jardín, jardín, kínder y transición. Educación con amor, respeto y felicidad.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Calle 25 sur # 15C-34, barrio Paseo Real",
+      "addressLocality": "Bogotá",
+      "addressCountry": "CO"
+    },
+    "telephone": "+573102165699",
+    "email": "info@casitadejesus.cl",
+    "sameAs": [
+      "https://wa.me/573102165699"
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -185,6 +209,62 @@
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="section-badge">Preguntas frecuentes</span>
+        <h2>Resolvemos tus dudas</h2>
+        <p>Lo que más nos preguntan las familias.</p>
+      </div>
+      <div class="accordion reveal">
+        <div class="accordion-item open">
+          <button class="accordion-header" onclick="toggleAccordion(this)">
+            <span class="acc-icon">▾</span> ¿Qué niveles ofrecen?
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-content">
+              <p>Trabajamos los niveles de párvulos, pre-jardín, jardín, kínder y transición, con una metodología centrada en el juego, el arte y el desarrollo personal de cada niño.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header" onclick="toggleAccordion(this)">
+            <span class="acc-icon">▸</span> ¿Cuál es el horario de atención?
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-content">
+              <p>Atendemos de lunes a viernes, de 8:00 a.m. a 4:00 p.m.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header" onclick="toggleAccordion(this)">
+            <span class="acc-icon">▸</span> ¿Cómo hago la reserva de cupo?
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-content">
+              <p>Contáctanos por WhatsApp, teléfono o el formulario de la página de contacto. Trabajamos con cupos limitados, por eso te recomendamos reservar con anticipación.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header" onclick="toggleAccordion(this)">
+            <span class="acc-icon">▸</span> ¿Qué uniformes necesita mi hijo?
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-content">
+              <p>Dos uniformes: una sudadera para gimnasia, paseos y salidas, y un delantal para las actividades comunes del jardín.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section style="background: linear-gradient(135deg, #0288d1, #4fc3f7); padding: 60px 0; text-align: center; color: white;">
     <div class="container">
@@ -202,7 +282,7 @@
           <div class="logo-main">Casita de Jesús</div>
           <p>Jardín Infantil. Un espacio donde cada niño florece con amor, respeto y felicidad.</p>
           <div class="social-links">
-            <a href="https://wa.me/573102165699" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+            <a href="https://wa.me/573102165699?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20cupos%20en%20Casita%20de%20Jes%C3%BAs" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
             <a href="#" aria-label="Facebook" onclick="return false;">📘</a>
             <a href="#" aria-label="Instagram" onclick="return false;">📸</a>
           </div>
@@ -233,7 +313,7 @@
   </footer>
 
   <!-- BOTÓN VOLVER ARRIBA -->
-  <a href="https://wa.me/573102165699" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">💬</a>
+  <a href="https://wa.me/573102165699?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20cupos%20en%20Casita%20de%20Jes%C3%BAs" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">💬</a>
 
   <button class="scroll-top" id="scrollTop" aria-label="Volver arriba">↑</button>
 
@@ -272,6 +352,25 @@
         nav.classList.remove('open');
       }
     });
+
+    const current = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.main-nav a').forEach(a => {
+      if (a.getAttribute('href') === current) a.classList.add('active');
+    });
+
+    function toggleAccordion(header) {
+      const item = header.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.accordion-item').forEach(i => {
+        i.classList.remove('open');
+        const icon = i.querySelector('.acc-icon');
+        if (icon) icon.textContent = '▸';
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        header.querySelector('.acc-icon').textContent = '▾';
+      }
+    }
   </script>
 
 </body>

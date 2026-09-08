@@ -52,18 +52,24 @@ En el footer hay botones de WhatsApp configurado con el número real. Los de Fac
 En `index.html` y `pedagogia.html` el botón "Agenda tu visita" enlaza a la página de contacto.
 
 ## Características extras
-- **Botón flotante de WhatsApp** en todas las páginas (abre conversación al número real).
+- **Botón flotante de WhatsApp** en todas las páginas (abre conversación con mensaje predefinido).
 - **Lightbox en la galería**: al hacer clic en una foto se amplía; navegación con teclado (←/→/Esc) y flechas.
 - **Mapa de Google** embebido en `contacto.html` con la dirección del jardín.
 - **Página 404 personalizada** (`404.html`) para enlaces rotos.
 - **Menú móvil** que se cierra al hacer clic en un enlace o fuera de él.
+- **Menú con página activa destacada** según la página actual.
+- **Sección de preguntas frecuentes (FAQ)** con acordeón en el inicio.
 - **Botón "volver arriba"** en todas las páginas.
 - **Animaciones** suaves al hacer scroll (fade-in).
+- **Imágenes optimizadas**: logo (~80 KB) y hero (`img/kids.jpg`, ~70 KB) reducidos desde más de 2 MB cada una.
 
 ## SEO
 - `sitemap.xml`: mapa del sitio para Google
 - `robots.txt`: reglas de rastreo
 - `404.html`: página de error personalizada
+- Metatags Open Graph con imagen propia (`img/og-image.jpg`, 1200×630) en todas las páginas
+- Etiquetas `canonical` en todas las páginas
+- Datos estructurados JSON-LD (`EducationalOrganization` en el inicio, `WebSite` en las demás)
 - Metatags Open Graph en todas las páginas para compartir en redes
 
 ## Cómo ver el sitio localmente

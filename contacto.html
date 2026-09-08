@@ -10,9 +10,18 @@
   <meta property="og:title" content="Contacto - Jardín Infantil Casita de Jesús">
   <meta property="og:description" content="Dirección, teléfono, correo y formulario de contacto del Jardín Infantil Casita de Jesús.">
   <meta property="og:url" content="https://juancho946.github.io/casita-de-jesus/contacto.html">
-  <meta property="og:image" content="https://juancho946.github.io/casita-de-jesus/img/logo.png">
+  <link rel="canonical" href="https://juancho946.github.io/casita-de-jesus/contacto.html">
+  <meta property="og:image" content="https://juancho946.github.io/casita-de-jesus/img/og-image.jpg">
   <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="css/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Jardín Infantil Casita de Jesús",
+    "url": "https://juancho946.github.io/casita-de-jesus/contacto.html"
+  }
+  </script>
 </head>
 <body>
 
@@ -131,7 +140,7 @@
           <div class="logo-main">Casita de Jesús</div>
           <p>Jardín Infantil. Un espacio donde cada niño florece con amor, respeto y felicidad.</p>
           <div class="social-links">
-            <a href="https://wa.me/573102165699" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+            <a href="https://wa.me/573102165699?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20cupos%20en%20Casita%20de%20Jes%C3%BAs" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
             <a href="#" aria-label="Facebook" onclick="return false;">📘</a>
             <a href="#" aria-label="Instagram" onclick="return false;">📸</a>
           </div>
@@ -159,7 +168,7 @@
     </div>
   </footer>
 
-  <a href="https://wa.me/573102165699" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">💬</a>
+  <a href="https://wa.me/573102165699?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20cupos%20en%20Casita%20de%20Jes%C3%BAs" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">💬</a>
 
   <button class="scroll-top" id="scrollTop" aria-label="Volver arriba">↑</button>
 
@@ -192,6 +201,11 @@
       if (nav && nav.classList.contains('open') && !nav.contains(e.target) && !toggle.contains(e.target)) {
         nav.classList.remove('open');
       }
+    });
+
+    const current = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.main-nav a').forEach(a => {
+      if (a.getAttribute('href') === current) a.classList.add('active');
     });
   </script>
 

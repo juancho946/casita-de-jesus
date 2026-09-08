@@ -1768,6 +1768,12 @@ ul {
   color: #888;
 }
 
+/* ========== FAQ (HOME) ========== */
+.faq-section {
+  padding: 70px 0;
+  background: #f3f8fb;
+}
+
 /* ========== BENEFICIOS / POR QUÉ ELEGIRNOS (HOME) ========== */
 .why-section {
   padding: 70px 0;
