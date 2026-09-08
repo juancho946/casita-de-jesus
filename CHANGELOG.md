@@ -4,6 +4,31 @@ Todos los cambios notables del sitio **Jardín Infantil Casita de Jesús**.
 
 El formato sigue [Keep a Changelog](https://keepachangelog.com/es/1.1.0/) y este proyecto usa [Versionado Semántico](https://semver.org/lang/es/).
 
+## [1.1.0] - 2026-09-08
+
+### Añadido
+- CSS minificado (`css/styles.min.css`) + `font-display:swap` en Google Fonts (evita FOIT).
+- `width`/`height` en **todas las imágenes** (logo, hero, equipo, niveles) → **CLS ≈ 0**.
+- Favicon robusto: `img/logo.png` (200×200) + `favicon.ico` fallback (32×32) → compatibilidad universal.
+- Content Security Policy (CSP) via meta tag (mitiga XSS, iframes no autorizados).
+- Año dinámico en footer (`new Date().getFullYear()`).
+- Google Forms responsive (`min-height: 600px; height: 100vh`) + link fallback "Ábrelo en Google Forms".
+- `aria-hidden="true"` en emojis decorativos (accesibilidad para screen readers).
+- `robots.txt` restrictivo: `Disallow: /img/galeria/`, `/img/equipo/`, `/css/`.
+
+### Cambiado
+- Contacto unificado a **Colombia**: email `.co` + teléfono `+57` (antes `.cl` inconsistent).
+- Headers HTML: `preconnect` a fonts.googleapis.com / fonts.gstatic.com.
+- Eliminado `favicon.svg` con emoji 🏠 (casa) que se veía en pestaña del navegador.
+
+### Performance
+- CSS 20 KB → ~8 KB gzipped (minificado).
+- Fonts con `display=swap` → FCP/LCP mejorado.
+- Imágenes con dimensiones reservadas → sin layout shift.
+
+### Seguridad
+- CSP restringe: scripts, frames, styles, fonts a orígenes permitidos.
+
 ## [1.0.0] - 2026-09-08
 
 Sitio completo publicado en GitHub Pages (https://juancho946.github.io/casita-de-jesus/).
